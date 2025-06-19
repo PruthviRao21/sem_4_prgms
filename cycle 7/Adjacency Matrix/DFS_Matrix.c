@@ -4,36 +4,16 @@ int ordercount=0;
 int cyclic=0;
 int count=0;
 int graph[100][100],visited[100];
-void bfs(int n,int start)
-{
-	int rear=-1,front=-1,parentnode;
-	visited[start]=1;
-	int queue[n],parent[n];
-	queue[++rear]=start;
-	parent[rear]=-1;
- 	while(rear!=front)
-        {
-                start=queue[++front];
-                parentnode=parent[front];
-                //printf("-->%c ",start+65); it is only for tester
-                for(int i=0;i<n;i++)
-                {
-		    ordercount++;
-		    // order count is for plotter
-                      if( parentnode!=i && graph[start][i] && visited[i])
-			      cyclic=1;
-		        
-                        if(graph[start][i] && (visited[i]==0))
-                        {
-                                visited[i]=1;
-                            
-                                queue[++rear]=i;
-                                parent[rear]=start;
-                        }
-			
-                }
-        }
-	
+void dfs(int n, int start, int parent) {
+ 	visited[start] = 1;
+ 	count++;
+   for(int i=0; i<n; i++) {
+  	ordercount++;
+   if(i!=parent && graph[start][i] && visited[i])
+ 	cyclic = 1;
+   if(graph[start][i] && visited[i]==0)
+ 	dfs(n, i, start);
+ }
 }
 void tester()
 {
@@ -61,7 +41,7 @@ void tester()
         }
         cyclic=0;
         count=0;
-        bfs(n,0);
+        dfs(n,0,-1);
         if(n==count)
                 printf("\nThe graph is connected\n");
         else
@@ -72,7 +52,7 @@ void tester()
                 {
                         if(visited[start]!=1)
                         {
-                                bfs(n,start);
+                                dfs(n,start,-1);
                         }
                         start++;
                 }
@@ -86,57 +66,47 @@ void tester()
 
 void plotter(int k)
 {
-	FILE*  f1=fopen("BFS_Best.txt","a");
-	FILE*  f2=fopen("BFS_Worst.txt","a");
-	int v,start;
-	for(int i=1;i<=10;i++)
-	{
-		v=i;
-		for(int j=0;j<v;j++)
-		{
-			if(k==0)
-			{
-				for(int x=0;x<v;x++)
-				{
-					for(int y=0;y<v;y++)
-					{
-						if(x!=y)
-							graph[x][y]=1;
-						else
-							graph[x][y]=0;
-					}
-				}
-			}
-			else
-			{
-				for(int x=0;x<v;x++)
-				{
-					for(int y=0;y<v;y++)
-						graph[x][y]=0;
-				}
-				for(int x=0;x<v-1;x++)
-				{
-					graph[x][x+1]=1;
-				}
-			}
+    FILE* f1 = fopen("DFS_Best_Matrix.txt", "a");
+    FILE* f2 = fopen("DFS_Worst_Matrix.txt", "a");
+    int v;
 
-	for (int i = 0; i < v; i++)
-            visited[i] = 0;
-	ordercount=0;
-	bfs(v,0);
-	if(k==0)
-	{
-		fprintf(f2,"%d\t%d\n",v,ordercount);
+    for (int i = 1; i <= 10; i++) {
+        v = i;
 
-	}
-	else
-	{
-		fprintf(f1,"%d\t%d\n",v,ordercount);
-	}
-	}	
-	fclose(f1);
-	fclose(f2);
+        
+        if (k == 0) 
+	{  
+            for (int x = 0; x < v; x++)
+                for (int y = 0; y < v; y++)
+                    graph[x][y] = (x != y) ? 1 : 0;
+        } 
+	else 
+	{  
+            for (int x = 0; x < v; x++)
+                for (int y = 0; y < v; y++)
+                    graph[x][y] = 0;
+            for (int x = 0; x < v - 1; x++)
+                graph[x][x + 1] = 1;
+        }
+        for (int x = 0; x < v; x++)
+            visited[x] = 0;
+
+        count = 0;
+        ordercount = 0;
+        for (int x = 0; x < v; x++) {
+            if (!visited[x])
+                dfs(v, x, -1);
+        }
+        if (k == 0)
+            fprintf(f2, "%d\t%d\n", v, ordercount);
+        else
+            fprintf(f1, "%d\t%d\n", v, ordercount);
+    }
+
+    fclose(f1);
+    fclose(f2);
 }
+
 void main()
 {
         for(;;)
