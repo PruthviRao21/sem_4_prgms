@@ -8,6 +8,7 @@ void bfs(int n,int start)
 {
 	int rear=-1,front=-1,parentnode;
 	visited[start]=1;
+	count++;
 	int queue[n],parent[n];
 	queue[++rear]=start;
 	parent[rear]=-1;
@@ -26,7 +27,7 @@ void bfs(int n,int start)
                         if(graph[start][i] && (visited[i]==0))
                         {
                                 visited[i]=1;
-                            
+                		count++;            
                                 queue[++rear]=i;
                                 parent[rear]=start;
                         }
