@@ -121,8 +121,8 @@ void plotter(int k)
 				}
 			}
 
-	for (int i = 0; i < v; i++)
-            visited[i] = 0;
+	for (int a = 0; a < v; a++)
+            visited[a] = 0;
 	ordercount=0;
 	bfs(v,0);
 	if(k==0)
