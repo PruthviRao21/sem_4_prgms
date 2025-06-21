@@ -142,6 +142,7 @@ void ploter(int k)
  int key;
 
 if(k==0)
+{
  for(int i=0;i<g->vertices;i++)
 {
 	for(int j=0;j<g->vertices;j++)
@@ -154,6 +155,7 @@ if(k==0)
 	 g->adjLists[i] = nn;
  	}
  	}
+}
 }
 if(k==1)
 {
