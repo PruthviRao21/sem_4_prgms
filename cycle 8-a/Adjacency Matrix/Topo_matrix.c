@@ -99,15 +99,18 @@ void plotter(int k)
 void main()
 {
 	int key;
-	printf("Enter the choice:\n1. To test\n2. To plot\nOther to exit\n");
-	scanf("%d",&key);
-	switch(key)
+	for(;;)
 	{
-		case 1:tester();
-		       break;
-		case 2:for(int i=0;i<2;i++)
+		printf("Enter the choice:\n1. To test\n2. To plot\nOther to exit\n");
+		scanf("%d",&key);
+		switch(key)
+		{
+			case 1:tester();
+		       		break;
+			case 2:for(int i=0;i<2;i++)
 			       plotter(i);
-		       break;
-		default:exit(1);
+		       		break;
+			default:exit(1);
+		}
 	}
 }
