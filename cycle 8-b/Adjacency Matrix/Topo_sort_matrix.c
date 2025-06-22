@@ -37,7 +37,6 @@ void SourceRemove(int** a,int n,int inq[],queue* q)
 		q->f=(q->f+1)%n;
 		sort[cnt]=source;
 		q->cnt--;
-		count++;
 		cnt++;
 		for(int i=0;i<n;i++)
 		{
