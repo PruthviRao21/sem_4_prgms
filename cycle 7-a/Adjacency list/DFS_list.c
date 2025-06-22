@@ -40,7 +40,8 @@ struct node* adjList = graph->adjLists[vertex];
 struct node* temp = adjList;
 count++;
 graph->visited[vertex] = 1;
-//printf("-->%c ", vertex+65);
+printf("-->%c ", vertex+65);
+// print statement only for tester
 while (temp != NULL)
 {
  ordercount++;

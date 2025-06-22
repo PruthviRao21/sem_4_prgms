@@ -7,6 +7,8 @@ int graph[100][100],visited[100];
 void dfs(int n, int start, int parent) {
  	visited[start] = 1;
  	count++;
+	printf("--> %c ", start+65);
+	// print statement only for tester
    for(int i=0; i<n; i++) {
   	ordercount++;
    if(i!=parent && graph[start][i] && visited[i])

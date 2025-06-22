@@ -46,7 +46,8 @@ void bfs(struct Graph* graph,int start)
         {
                 start=queue[++front];
                 parentnode=parent[front];
-                //printf("-->%c ",start+65);
+                printf("-->%c ",start+65);
+		// print is for tester
                 Node temp=graph->adjLists[start];
                 while(temp)
                 {

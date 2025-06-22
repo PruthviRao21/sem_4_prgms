@@ -16,7 +16,8 @@ void bfs(int n,int start)
         {
                 start=queue[++front];
                 parentnode=parent[front];
-                //printf("-->%c ",start+65); it is only for tester
+                printf("-->%c ",start+65); 
+		// it is only for tester
                 for(int i=0;i<n;i++)
                 {
 		    ordercount++;
@@ -137,6 +138,7 @@ void plotter(int k)
 	}	
 	fclose(f1);
 	fclose(f2);
+	}
 }
 void main()
 {
