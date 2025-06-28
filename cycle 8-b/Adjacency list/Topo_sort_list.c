@@ -11,8 +11,6 @@ typedef struct node* Node;
 struct Graph
 {
 	int vertices;
-	int* visit;
-	int* path;
 	struct node** adjLists;
 };
 Node create(int data)
@@ -27,12 +25,9 @@ struct Graph* creategraph(int vertices)
 	struct Graph* graph = malloc(sizeof(struct Graph));
 	graph->vertices = vertices;
 	graph->adjLists = malloc(vertices * sizeof(struct node*));
-	graph->visit = malloc(vertices * sizeof(int));
-	graph->path = malloc(vertices * sizeof(int));
 	for (int i = 0; i < vertices; i++) 
 	{
 		graph->adjLists[i]= NULL;
-		graph->visit[i] = 0;
 	}
  	return graph;
 }
