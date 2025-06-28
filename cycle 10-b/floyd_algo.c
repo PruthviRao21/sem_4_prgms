@@ -9,7 +9,7 @@ void creategraph(int n)
 	{
 	   for(int j=0;j<n;j++){
 	      if(i==j) matrix[i][j]=0;
-              else matrix[i][j]=rand()%10+1;
+              else matrix[i][j]=rand();
 	  }
  	}
 }
@@ -53,7 +53,7 @@ void tester()
 }
 void plotter()
 {
-        FILE *f=fopen("Floyd_general.txt","a");
+        FILE *f=fopen("Floyd_general.txt","w");
         for(int i=2;i<12;i++)
         {
 		int n=i;
