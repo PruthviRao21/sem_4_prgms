@@ -16,7 +16,7 @@ void bfs(int n,int start)
         {
                 start=queue[++front];
                 parentnode=parent[front];
-                printf("-->%c ",start+65); 
+        //        printf("-->%c ",start+65); 
 		// it is only for tester
                 for(int i=0;i<n;i++)
                 {
@@ -94,18 +94,14 @@ void plotter(int k)
 	for(int i=1;i<=10;i++)
 	{
 		v=i;
-		for(int j=0;j<v;j++)
-		{
+
 			if(k==0)
 			{
 				for(int x=0;x<v;x++)
 				{
 					for(int y=0;y<v;y++)
 					{
-						if(x!=y)
-							graph[x][y]=1;
-						else
-							graph[x][y]=0;
+						graph[x][y]=(x!=y)?1:0;
 					}
 				}
 			}
@@ -138,7 +134,6 @@ void plotter(int k)
 	}	
 	fclose(f1);
 	fclose(f2);
-	}
 }
 void main()
 {
