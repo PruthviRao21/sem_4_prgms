@@ -57,14 +57,14 @@ void SourceRemove(int** a,int n,int inq[],queue* q)
 	{
 		 printf("Cycles exist no topological sorting possible\n");
 	}
-/*	else
+	else
 	{
 		printf("The topological sorting is\n");
 		for(int i=0;i<n;i++)
 		printf("%c ",sort[i]+65);
 
 	}
-*/
+
 	//only for tester
 }
 void tester()

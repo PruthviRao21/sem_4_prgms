@@ -84,7 +84,7 @@ void SourceRemove(struct Graph* g,int inq[],queue* q) {
         }
         count3++;
     }
-  /*  if(cnt!=g->vertices)
+   if(cnt!=g->vertices)
     {
  	printf("Cycles exist no topological sorting possible\n");
     }
@@ -95,8 +95,8 @@ void SourceRemove(struct Graph* g,int inq[],queue* q) {
 	printf("%c ",sort[i]+65);
 
     }
-    only for tester
-    */
+  //  only for tester
+    
 }
 int max(int a, int b, int c) {
     if (a >= b && a >= c) return a;
