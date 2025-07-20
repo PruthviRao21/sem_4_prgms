@@ -123,9 +123,6 @@ void plotter(int k) {
             arr[i] = malloc(v * sizeof(int));
 
         if (k == 1) {
-            for (int i = 0; i < v; i++)
-	    for (int j = 0; j < v; j++)
-        	arr[i][j] = 0;
             for (int i = 0; i < v - 1; i++)
                 arr[i][i + 1] = 1;
         } else {
