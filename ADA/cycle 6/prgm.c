@@ -15,18 +15,22 @@ void quicksort(int arr[], int st, int en)
     int high = en;
     while (low <= high)
     {
-       while (low <= high && arr[low] < pivot) {
-        cnt++;
-        low++;
+        while (1)
+        {
+            cnt++;
+            if (arr[low] < pivot)
+                low++;
+            else
+                break;
         }
-        cnt++;  // Count the failed comparison
-
-       while (low <= high && arr[high] > pivot) {
-        cnt++;
-        high--;
-    }
-    cnt++;
-
+        while (1)
+        {
+            cnt++;
+            if (arr[high] > pivot)
+                high--;
+            else
+                break;
+        }
         if (low <= high)
         {
             int temp = arr[low];
